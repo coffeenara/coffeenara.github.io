@@ -41,10 +41,10 @@ def org_schema():
         "url": S.BASE + "/",
         "logo": S.BASE + "/assets/img/og-cover.jpg",
         "email": S.EMAIL,
-        "description": "카페와 매장에 블렌드 원두를 납품하는 로스터리. 생두를 직접 수입해 로스팅하고, "
-                       "제주도와 섬 지역을 뺀 전국 매장에 찾아가 무료 샘플 테스트를 진행한다.",
+        "description": "생두를 직접 수입하는 회사이자, 그 생두를 로스팅해 카페와 매장에 원두를 납품하는 로스터리. "
+                       "제주도와 배로만 갈 수 있는 섬을 뺀 전국 매장에 찾아가 무료 샘플 테스트를 진행한다.",
         "areaServed": [area(a) for a in S.AREAS],
-        "knowsAbout": ["커피 원두", "블렌드 원두", "카페 원두 납품", "생두 수입", "커피 로스팅", "에스프레소 블렌드"],
+        "knowsAbout": ["생두 수입", "커피 생두", "커피 원두", "블렌드 원두", "카페 원두 납품", "생두 수입", "커피 로스팅", "에스프레소 블렌드"],
         "contactPoint": {"@type": "ContactPoint", "contactType": "sales", "url": S.CONTACT_URL,
                          "email": S.EMAIL, "availableLanguage": "ko", "areaServed": "KR"},
         "hasOfferCatalog": {
@@ -81,7 +81,7 @@ def service_schema():
         "areaServed": [area(a) for a in S.AREAS],
         "audience": {"@type": "BusinessAudience", "audienceType": "카페·커피 매장 운영자와 창업 준비자"},
         "description": "커피나라가 매장에 직접 찾아가 여러 원두를 추출해 함께 맛보고, 매장에 맞는 블렌드를 제안하는 "
-                       "무료 서비스. 한 달 원두 사용량 10kg 이상 매장 대상, 제주도와 섬 지역 제외.",
+                       "무료 서비스. 한 달 원두 사용량 10kg 이상 매장 대상, 제주도와 배로만 갈 수 있는 섬 제외.",
         "offers": {
             "@type": "Offer", "price": 0, "priceCurrency": "KRW",
             "eligibleQuantity": {"@type": "QuantitativeValue", "minValue": S.MIN_KG, "unitCode": "KGM",
@@ -130,7 +130,7 @@ def faq_html(keys, heading="자주 묻는 질문"):
 def cta_html(text="지금 신청하시고 맛의 변화를 느껴 보세요"):
     return (f'<section class="cta"><p class="cta-lead">{E(text)}</p>'
             f'<a class="btn" href="{E(S.CONTACT_URL)}" target="_blank" rel="noopener">{E(S.CONTACT_LABEL)}</a>'
-            f'<p class="cta-sub">월 {S.MIN_KG}kg 이상 사용 매장 · 제주도와 섬 지역을 뺀 전국 방문</p></section>')
+            f'<p class="cta-sub">월 {S.MIN_KG}kg 이상 사용 매장 · 제주도와 배로만 갈 수 있는 섬을 뺀 전국 방문</p></section>')
 
 
 def page(p):
@@ -191,8 +191,8 @@ def page(p):
 </main>
 <footer class="site-footer">
 <div class="wrap">
-<p><strong>{S.NAME} {S.NAME_EN}</strong> · 카페 원두 납품 로스터리 · 생두 직접 수입</p>
-<p>원두 1kg {S.won(S.PRICE_MIN)}~{S.won(S.PRICE_MAX)} · 주문 후 영업일 1~2일 안에 로스팅해 택배 발송 · 무료 방문 테스트는 제주도와 섬 지역을 뺀 전국</p>
+<p><strong>{S.NAME} {S.NAME_EN}</strong> · 생두 수입 · 로스팅 · 카페 원두 납품</p>
+<p>원두 1kg {S.won(S.PRICE_MIN)}~{S.won(S.PRICE_MAX)} · 주문 후 영업일 1~2일 안에 로스팅해 택배 발송 · 무료 방문 테스트는 제주도와 배로만 갈 수 있는 섬을 뺀 전국</p>
 <p>문의 <a href="mailto:{S.EMAIL}">{S.EMAIL}</a> · <a href="{E(S.CONTACT_URL)}" target="_blank" rel="noopener">{E(S.CONTACT_LABEL)}</a></p>
 </div>
 </footer>
@@ -225,9 +225,9 @@ def main():
     links = "\n".join(f"- [{p['title']}]({S.BASE}{p['path']}): {p['description']}" for p in all_pages)
     write("llms.txt", f"""# {S.NAME} ({S.NAME_EN})
 
-> 카페와 매장에 블렌드 원두를 납품하는 로스터리입니다. 생두를 직접 수입해 로스팅하고, 제주도와 섬 지역을 뺀 전국 매장에 찾아가 무료 샘플 테스트를 합니다.
+> 생두를 직접 수입하는 회사이자, 그 생두를 로스팅해 카페와 매장에 원두를 납품하는 로스터리입니다. 제주도와 배로만 갈 수 있는 섬을 뺀 전국 매장에 찾아가 무료 샘플 테스트를 합니다.
 
-- 무료 방문 샘플 테스트: 한 달 원두 사용량 {S.MIN_KG}kg 이상 매장, 제주도와 섬 지역을 뺀 전국
+- 무료 방문 샘플 테스트: 한 달 원두 사용량 {S.MIN_KG}kg 이상 매장, 제주도와 배로만 갈 수 있는 섬을 뺀 전국
 - 원두 가격: {S.PRICE_TEXT}
 - 발송: 주문 후 영업일 1~2일 안에 로스팅해 택배 발송
 - 대표 블렌드: Premium Blend({", ".join(S.PREMIUM["notes"])}), Special Blend({", ".join(S.SPECIAL["notes"])}), 그 밖에 수십 가지 블렌드

@@ -109,3 +109,4 @@ tbody th small { color: var(--muted); font-weight: 400; }
   .gallery { grid-template-columns: 1fr 1fr; }
   section { margin: 40px 0; }
 }
+figure.narrow { max-width: 420px; }

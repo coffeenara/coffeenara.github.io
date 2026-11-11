@@ -102,7 +102,7 @@ def build(S, E, X):
 <div class="hero-text">
 <p class="eyebrow">Coffee Nara · 커피나라</p>
 <h1>매장에서 직접 맛보고 고르는<br>카페 원두</h1>
-<p class="lead">커피나라는 카페에 블렌드 원두를 납품하는 로스터리입니다. 매장에 찾아가 샘플 테스트를 무료로 해 드립니다.
+<p class="lead">커피나라는 생두를 직접 수입하고, 그 생두를 로스팅해 카페에 원두를 납품합니다. 매장에 찾아가 샘플 테스트를 무료로 해 드립니다.
 월 {S.MIN_KG}kg 이상만 사용하셔도 방문합니다. 원두의 맛과 단가, 두 가지 모두 만족을 약속드립니다.</p>
 <a class="btn" href="{E(S.CONTACT_URL)}" target="_blank" rel="noopener">{E(S.CONTACT_LABEL)}</a>
 </div>
@@ -136,7 +136,7 @@ def build(S, E, X):
 {fig(E, "kenya-drying-beds.jpg", "케냐 가공소의 아프리칸 베드 위 파치먼트를 살펴보는 사람들", "케냐 중부 가공소, 2024년 2월")}
 <div>
 <h2>생두는 직접 수입합니다</h2>
-<p>커피나라는 케냐, 과테말라, 에티오피아의 농장과 가공소, 수출 창고를 직접 찾아가 생두를 보고 커핑합니다.
+<p>커피나라는 생두 수입 회사입니다. 케냐, 과테말라, 에티오피아의 농장과 가공소, 수출 창고를 직접 찾아가 생두를 보고 커핑합니다.
 블렌드별 배합 비율과 원산지 구성은 커피나라의 레시피라 공개하지 않습니다.</p>
 <a class="more" href="/origin/">산지 사진 보기</a>
 </div>
@@ -144,8 +144,8 @@ def build(S, E, X):
 """
     pages.append(dict(
         path="/",
-        title="커피나라 Coffee Nara | 카페 원두 납품 · 무료 방문 샘플 테스트",
-        description=f"커피나라는 카페에 블렌드 원두를 납품하는 로스터리입니다. 생두를 직접 수입하고, 월 {S.MIN_KG}kg 이상 "
+        title="커피나라 Coffee Nara | 생두 수입 · 카페 원두 납품 · 무료 방문 샘플 테스트",
+        description=f"커피나라는 생두를 직접 수입해 로스팅하고 카페에 원두를 납품하는 회사입니다. 월 {S.MIN_KG}kg 이상 "
                     f"매장에 찾아가 무료로 샘플 테스트를 합니다. 원두 {S.PRICE_TEXT}.",
         body=home,
         faq=["about", "visit", "min", "price", "ship", "new_store", "unsatisfied"],
@@ -175,10 +175,13 @@ def build(S, E, X):
 <p>원두 가격은 {S.PRICE_TEXT}이며 블렌드에 따라 다릅니다. 주문을 받은 뒤 영업일 기준 1~2일 안에 로스팅해 택배로 보냅니다.</p>
 </section>
 
-<section>
+<section class="split">
+{fig(E, "coffee-cherries-ripe.jpg", "가지에 촘촘히 달린 붉게 익은 커피 체리", "붉게 익은 커피 체리.", "narrow")}
+<div>
 <h2>배합은 공개하지 않습니다</h2>
 <p>커핑 노트와 맛의 방향은 위에 적은 그대로입니다. 블렌드마다 어떤 생두를 어떤 비율로 섞는지는 커피나라의 레시피라 공개하지 않습니다.
 매장에 맞는 블렌드는 <a href="/free-test/">무료 방문 테스트</a>에서 직접 맛보고 고르실 수 있습니다.</p>
+</div>
 </section>
 """
     pages.append(dict(
@@ -210,7 +213,7 @@ def build(S, E, X):
 <tbody>
 <tr><th scope="row">비용</th><td>무료</td></tr>
 <tr><th scope="row">대상</th><td>한 달 원두 사용량 {S.MIN_KG}kg 이상인 카페·매장, 오픈을 준비하는 매장</td></tr>
-<tr><th scope="row">지역</th><td>제주도와 섬 지역을 뺀 전국</td></tr>
+<tr><th scope="row">지역</th><td>제주도와 배로만 갈 수 있는 섬을 뺀 전국</td></tr>
 <tr><th scope="row">진행</th><td>상담 신청 → 매장 방문 테스트 → 맞춤 블렌드 제안</td></tr>
 <tr><th scope="row">신청</th><td><a href="{E(S.CONTACT_URL)}" target="_blank" rel="noopener">{E(S.CONTACT_LABEL)}</a></td></tr>
 </tbody>
@@ -225,31 +228,32 @@ def build(S, E, X):
 {fig(E, "espresso-extraction.jpg", "에스프레소 머신에서 두 잔으로 추출되는 에스프레소", "")}
 <div>
 <h2>새로 카페를 여는 분도 신청할 수 있습니다</h2>
-<p>오픈을 준비하는 단계라면 예상 사용량과 원하는 맛, 목표 단가를 알려 주세요. 메뉴 구성에 맞는 블렌드를 함께 고릅니다.</p>
+<p>오픈을 준비하는 단계라면 예상 사용량과 원하는 맛, 목표 단가를 알려 주세요. 테스트는 매장의 커피 머신으로 하므로, 머신이 설치된 뒤 일정을 잡아 찾아갑니다. 메뉴 구성에 맞는 블렌드를 함께 고릅니다.</p>
 <p>한 달 {S.MIN_KG}kg은 에스프레소 더블샷에 원두 18~20g을 쓸 때 약 500~550잔, 하루 평균 17~18잔입니다.
 사용량 계산은 <a href="/guide/choose-bean-supplier/">카페 원두 납품 업체 고르는 법</a>에 정리해 두었습니다.</p>
 </div>
 </section>
 
 <section>
-<h2>제주도와 섬 지역을 뺀 전국에 방문합니다</h2>
-<p>서울이나 부산 같은 대도시뿐 아니라 담양, 순천, 경주, 강릉, 공주 같은 시·군 지역에도 방문합니다.</p>
+<h2>제주도와 배로만 갈 수 있는 섬을 뺀 전국에 방문합니다</h2>
+<p>서울이나 부산 같은 대도시뿐 아니라 담양, 순천, 경주, 강릉, 공주 같은 시·군 지역에도 방문합니다. 거제도나 강화도처럼 다리로 이어져 차로 갈 수 있는 섬도 방문합니다.</p>
 <div class="table-wrap"><table>
 <caption>방문 가능 지역</caption>
 <thead><tr><th scope="col">권역</th><th scope="col">시·도</th><th scope="col">방문 테스트</th></tr></thead>
 <tbody>{region_rows}
-<tr><th scope="row">제주·섬</th><td>제주특별자치도, 섬 지역</td><td>방문 불가</td></tr>
+<tr><th scope="row">다리로 이어진 섬</th><td>거제도, 강화도, 진도, 남해, 완도 등 차로 갈 수 있는 섬</td><td>방문 가능</td></tr>
+<tr><th scope="row">제주·섬</th><td>제주특별자치도, 배로만 갈 수 있는 섬</td><td>방문 불가</td></tr>
 </tbody>
 </table></div>
 </section>
 """
     pages.append(dict(
         path="/free-test/", crumb="무료 방문 테스트",
-        title="무료 방문 커피 샘플 테스트 | 제주·섬 제외 전국 카페 방문 · 커피나라",
+        title="무료 방문 커피 샘플 테스트 | 전국 카페 방문(제주·배편 섬 제외) · 커피나라",
         description=f"커피나라가 카페에 직접 찾아가 원두를 추출해 함께 맛보고 블렌드를 제안합니다. 무료, 월 {S.MIN_KG}kg 이상 "
-                    "사용 매장, 서울·부산·대구·광주·대전 등 제주도와 섬 지역을 뺀 전국, 오픈 준비 매장도 신청 가능.",
+                    "사용 매장, 서울·부산·대구·광주·대전 등 제주도와 배로만 갈 수 있는 섬을 뺀 전국, 오픈 준비 매장도 신청 가능.",
         body=free,
-        faq=["visit", "region", "region_small", "new_store", "min", "unsatisfied", "contact"],
+        faq=["visit", "region", "region_small", "bridge", "new_store", "min", "unsatisfied", "contact"],
         schema=[X.service_schema()],
         image="espresso-extraction.jpg",
         image_alt="에스프레소 머신에서 두 잔으로 추출되는 에스프레소",
@@ -258,7 +262,7 @@ def build(S, E, X):
     # ── 생두 직접 수입 ───────────────────────────────────
     origin = f"""<p class="eyebrow">생두 직접 수입</p>
 <h1>생두 직접 수입: 케냐·과테말라·에티오피아 산지에서</h1>
-<p class="lead">커피나라는 생두를 직접 수입합니다. 산지의 농장과 가공소, 수출 창고를 직접 찾아가 생두가 어떻게 길러지고 가공되는지 보고,
+<p class="lead">커피나라는 생두를 직접 수입하는 회사입니다. 산지의 농장과 가공소, 수출 창고를 직접 찾아가 생두가 어떻게 길러지고 가공되는지 보고,
 커핑으로 맛을 확인한 뒤 들여옵니다. 아래는 산지에서 직접 찍은 사진입니다.</p>
 <div class="table-wrap"><table>
 <caption>커피나라 산지 방문 기록</caption>
@@ -292,7 +296,7 @@ def build(S, E, X):
     pages.append(dict(
         path="/faq/", crumb="자주 묻는 질문",
         title="자주 묻는 질문 | 카페 원두 납품 · 방문 테스트 · 가격 · 발송 · 커피나라",
-        description=f"커피나라 원두 납품과 무료 방문 샘플 테스트에 관한 질문과 답. 신청 조건(월 {S.MIN_KG}kg), 방문 지역(제주·섬 제외 "
+        description=f"커피나라 원두 납품과 무료 방문 샘플 테스트에 관한 질문과 답. 신청 조건(월 {S.MIN_KG}kg), 방문 지역(제주도와 배로만 갈 수 있는 섬을 뺀 "
                     f"전국), 원두 가격({S.PRICE_TEXT}), 발송(주문 후 영업일 1~2일), 블렌드.",
         body="""<p class="eyebrow">자주 묻는 질문</p>
 <h1>커피나라 자주 묻는 질문</h1>
@@ -312,6 +316,7 @@ def build(S, E, X):
 <p class="meta">커피나라 · {S.UPDATED}</p>
 <p class="lead">카페를 새로 열거나 원두를 바꾸려고 할 때, 업체 홈페이지의 커핑 노트만으로는 결정하기 어렵습니다.
 사용량, 잔당 원가, 매장에서의 맛, 로스팅에서 받기까지의 기간, 블렌드 선택지를 차례로 확인하면 비교가 쉬워집니다.</p>
+{fig(E, "coffee-cherries-branch.jpg", "커피나무 가지에 붉게 익은 체리와 초록 체리가 함께 달린 모습", "커피는 나무에 열리는 체리의 씨앗입니다.", "narrow")}
 
 <h2>한 달 사용량부터 계산합니다</h2>
 <p>에스프레소 더블샷 한 잔에 원두 18~20g을 쓰면 1kg으로 약 50~55잔이 나옵니다. 한 달 10kg이면 약 500~550잔, 30일로 나누면 하루 17~18잔입니다.
@@ -345,7 +350,7 @@ def build(S, E, X):
 <tbody>
 <tr><th scope="row">신청 조건</th><td>한 달 원두 사용량 {S.MIN_KG}kg 이상</td></tr>
 <tr><th scope="row">1kg 단가</th><td>{S.won(S.PRICE_MIN)}~{S.won(S.PRICE_MAX)}</td></tr>
-<tr><th scope="row">매장 테스트</th><td>무료 방문 샘플 테스트, 제주도와 섬 지역을 뺀 전국</td></tr>
+<tr><th scope="row">매장 테스트</th><td>무료 방문 샘플 테스트, 제주도와 배로만 갈 수 있는 섬을 뺀 전국</td></tr>
 <tr><th scope="row">로스팅·발송</th><td>주문 후 영업일 1~2일 안에 로스팅해 택배</td></tr>
 <tr><th scope="row">블렌드</th><td>대표 블렌드 2가지와 수십 가지 맞춤 블렌드</td></tr>
 <tr><th scope="row">생두</th><td>직접 수입(케냐, 과테말라, 에티오피아 산지 방문)</td></tr>
