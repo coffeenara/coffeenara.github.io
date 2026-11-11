@@ -106,7 +106,7 @@ def build(S, E, X):
 월 {S.MIN_KG}kg 이상만 사용하셔도 방문합니다. 원두의 맛과 단가, 두 가지 모두 만족을 약속드립니다.</p>
 <a class="btn" href="{E(S.CONTACT_URL)}" target="_blank" rel="noopener">{E(S.CONTACT_LABEL)}</a>
 </div>
-<img class="hero-img" src="/assets/img/roaster.jpg" alt="로스터 냉각판에서 막 볶은 원두가 돌아가는 모습" width="480" height="254">
+<img class="hero-img" src="/assets/img/roaster.webp" alt="로스터 냉각판에서 막 볶은 원두가 돌며 식는 모습(움직이는 이미지)" width="480" height="254" fetchpriority="high">
 </section>
 {facts_strip(S, E)}
 
