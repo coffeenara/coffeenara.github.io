@@ -2,6 +2,8 @@
 
 _src/ 아래 파일만 고치고 이 스크립트를 돌리면 루트의 HTML, sitemap.xml, robots.txt, llms.txt가 다시 만들어집니다.
 """
+import datetime
+import hashlib
 import html
 import json
 import os
@@ -226,14 +228,36 @@ def write(rel, text):
         f.write(text)
 
 
+LASTMOD = "__LASTMOD__"  # 페이지 안의 dateModified 자리. 빌드 때 실제 수정일로 바뀝니다.
+MANIFEST = os.path.join(os.path.dirname(os.path.abspath(__file__)), "lastmod.json")
+
+
 def main():
+    """페이지 내용이 실제로 바뀐 경우에만 그 페이지의 수정일(sitemap lastmod, dateModified)을 오늘로 바꿉니다."""
+    today = os.environ.get("BUILD_DATE") or datetime.date.today().isoformat()
+    try:
+        with open(MANIFEST, encoding="utf-8") as f:
+            manifest = json.load(f)
+    except FileNotFoundError:
+        manifest = {}
+
     all_pages = pages.build(S, E, sys.modules[__name__])
     for p in all_pages:
         rel = p["path"].strip("/")
-        write(os.path.join(rel, "index.html") if rel else "index.html", page(p))
+        text = page(p)
+        digest = hashlib.sha256(text.encode("utf-8")).hexdigest()
+        prev = manifest.get(p["path"])
+        if not prev or prev["hash"] != digest:
+            prev = {"hash": digest, "date": today}
+            manifest[p["path"]] = prev
+        p["lastmod"] = prev["date"]
+        write(os.path.join(rel, "index.html") if rel else "index.html", text.replace(LASTMOD, prev["date"]))
+
+    with open(MANIFEST, "w", encoding="utf-8", newline="\n") as f:
+        json.dump(manifest, f, ensure_ascii=False, indent=1, sort_keys=True)
 
     urls = "".join(
-        f"<url><loc>{S.BASE}{p['path']}</loc><lastmod>{p.get('updated', S.UPDATED)}</lastmod></url>\n"
+        f"<url><loc>{S.BASE}{p['path']}</loc><lastmod>{p['lastmod']}</lastmod></url>\n"
         for p in all_pages)
     write("sitemap.xml", '<?xml version="1.0" encoding="UTF-8"?>\n'
           '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n' + urls + "</urlset>\n")

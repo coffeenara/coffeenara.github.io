@@ -1,0 +1,34 @@
+{
+ "/": {
+  "date": "2026-11-12",
+  "hash": "149a9851bc0ca9fd76096735af67474e22aed9e4ca5cf5c0717efd7389297f47"
+ },
+ "/blends/": {
+  "date": "2026-11-12",
+  "hash": "fe3b1ea2397d216f80aa28c3486fc793f1bc838a9b578bb1917e3e57e026f2de"
+ },
+ "/faq/": {
+  "date": "2026-11-12",
+  "hash": "f4170ea59271c6949e0aa5318f026649cfb10dc389f0dd8f0cc686b4058267d4"
+ },
+ "/free-test/": {
+  "date": "2026-11-12",
+  "hash": "66c22394551964b5383f3b844dad8206ccbf54676140d7f884e4b3e5ec36f1fb"
+ },
+ "/guide/": {
+  "date": "2026-11-12",
+  "hash": "f19e99270d86cb3710e3831c1c80a9dc2208c440fb24c44e1105179f9f2d62dd"
+ },
+ "/guide/choose-bean-supplier/": {
+  "date": "2026-11-12",
+  "hash": "d80810bfbfcee8dff246fdee4855add9a54a84e13b949a6ae516fcf5eee6d964"
+ },
+ "/guide/switching-cafe-beans/": {
+  "date": "2026-11-12",
+  "hash": "295e8788397366ae37b3a0f67abc544fa60462136382c5aa720c4d77038d7391"
+ },
+ "/origin/": {
+  "date": "2026-11-12",
+  "hash": "4da3b75ed480535a28b2ed19fa1ab6d6a92af64f5c62cde56974dcef8c8613e6"
+ }
+}

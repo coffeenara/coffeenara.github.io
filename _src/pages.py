@@ -156,7 +156,7 @@ def build(S, E, X):
         schema=[{"@type": "WebPage", "@id": S.BASE + "/#webpage", "url": S.BASE + "/",
                  "name": "커피나라 | 카페 원두 납품 · 무료 방문 샘플 테스트", "inLanguage": "ko",
                  "about": {"@id": S.BASE + "/#org"}, "isPartOf": {"@id": S.BASE + "/#website"},
-                 "dateModified": S.UPDATED}],
+                 "dateModified": X.LASTMOD}],
     ))
 
     # ── 블렌드 ───────────────────────────────────────────
@@ -324,7 +324,7 @@ def build(S, E, X):
         for p in (20000, 30000, 45000))
     guide = f"""<p class="eyebrow">가이드 · 카페 운영</p>
 <h1>카페 원두 납품 업체 고를 때 확인할 다섯 가지</h1>
-<p class="meta">커피나라 · {S.UPDATED}</p>
+<p class="meta">커피나라 · 2026-11-12</p>
 <p class="lead">카페를 새로 열거나 원두를 바꾸려고 할 때, 업체 홈페이지의 커핑 노트만으로는 결정하기 어렵습니다.
 사용량, 잔당 원가, 매장에서의 맛, 로스팅에서 받기까지의 기간, 블렌드 선택지를 차례로 확인하면 비교가 쉬워집니다.</p>
 
@@ -380,7 +380,7 @@ def build(S, E, X):
         og_type="article",
         schema=[{"@type": "Article", "@id": S.BASE + gpath + "#article",
                  "headline": "카페 원두 납품 업체 고를 때 확인할 다섯 가지", "inLanguage": "ko",
-                 "datePublished": S.UPDATED, "dateModified": S.UPDATED,
+                 "datePublished": "2026-11-12", "dateModified": X.LASTMOD,
                  "author": {"@id": S.BASE + "/#org"}, "publisher": {"@id": S.BASE + "/#org"},
                  "mainEntityOfPage": S.BASE + gpath, "image": S.BASE + "/assets/img/og-cover.jpg",
                  "about": ["카페 원두 납품", "카페 창업", "원두 단가", "잔당 원가"]}],
@@ -457,7 +457,7 @@ def build(S, E, X):
         faq=["switch_reaction", "switch_setting", "store_diff", "free_cost", "education"],
         schema=[{"@type": "Article", "@id": S.BASE + spath + "#article",
                  "headline": "카페 원두 바꾸면 손님이 떠날까? 원두 교체 전에 알아 둘 것", "inLanguage": "ko",
-                 "datePublished": sdate, "dateModified": sdate,
+                 "datePublished": sdate, "dateModified": X.LASTMOD,
                  "author": {"@id": S.BASE + "/#org"}, "publisher": {"@id": S.BASE + "/#org"},
                  "mainEntityOfPage": S.BASE + spath, "image": S.BASE + "/assets/img/espresso-extraction.jpg",
                  "about": ["카페 원두 교체", "원두 납품 업체 변경", "에스프레소 세팅", "분쇄도", "카페 운영"]}],
