@@ -5,11 +5,11 @@ NAME = "커피나라"
 NAME_EN = "Coffee Nara"
 EMAIL = "ccoffeenara@gmail.com"
 
-# 카카오톡 오픈채팅 주소가 생기면 여기만 바꿉니다. 그 전까지는 기존 Tally 신청 폼으로 연결됩니다.
+# 상담: 카카오톡 오픈채팅이 기본, 톡이 부담스러운 분을 위한 Tally 신청서가 보조.
 KAKAO_URL = "https://open.kakao.com/o/s36juFWi"
-FALLBACK_URL = "https://tally.so/r/nPqB0V"
-CONTACT_URL = KAKAO_URL or FALLBACK_URL
-CONTACT_LABEL = "카카오톡 상담" if KAKAO_URL else "무료 테스트 신청"
+FORM_URL = "https://tally.so/r/nPqB0V"
+CONTACT_URL = KAKAO_URL
+CONTACT_LABEL = "카카오톡 상담"
 
 UPDATED = "2026-11-12"
 

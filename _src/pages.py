@@ -104,7 +104,8 @@ def build(S, E, X):
 <h1>매장에서 직접 맛보고 고르는<br>카페 원두</h1>
 <p class="lead">커피나라는 생두를 직접 수입하고, 그 생두를 로스팅해 카페에 원두를 납품합니다. 매장에 찾아가 샘플 테스트를 100% 무료로 해 드립니다.
 신청비도, 환급 조건도 없습니다. 월 {S.MIN_KG}kg 이상만 사용하셔도 방문합니다. 원두의 맛과 단가, 두 가지 모두 만족을 약속드립니다.</p>
-<a class="btn" href="{E(S.CONTACT_URL)}" target="_blank" rel="noopener">{E(S.CONTACT_LABEL)}</a>
+{X.kakao_btn()}
+<p class="hero-alt">카톡이 부담스러우시면 {X.form_link()}로 남겨 주세요. 확인 후 전화드립니다.</p>
 </div>
 <img class="hero-img" src="/assets/img/roaster.webp" alt="로스터 냉각판에서 막 볶은 원두가 돌며 식는 모습(움직이는 이미지)" width="480" height="254" fetchpriority="high">
 </section>
@@ -222,7 +223,7 @@ def build(S, E, X):
 <tr><th scope="row">대상</th><td>한 달 원두 사용량 {S.MIN_KG}kg 이상인 카페·매장, 오픈을 준비하는 매장</td></tr>
 <tr><th scope="row">지역</th><td>제주도와 배로만 갈 수 있는 섬을 뺀 전국</td></tr>
 <tr><th scope="row">진행</th><td>상담 신청 → 매장 방문 테스트 → 맞춤 블렌드 제안</td></tr>
-<tr><th scope="row">신청</th><td><a href="{E(S.CONTACT_URL)}" target="_blank" rel="noopener">{E(S.CONTACT_LABEL)}</a></td></tr>
+<tr><th scope="row">신청</th><td><a href="{E(S.CONTACT_URL)}" target="_blank" rel="noopener">{E(S.CONTACT_LABEL)}</a> 또는 <a href="{E(S.FORM_URL)}" target="_blank" rel="noopener">신청서</a>(확인 후 전화드립니다)</td></tr>
 </tbody>
 </table></div>
 <p>원두를 바꾸고 싶은데 단골 반응이 걱정된다면 <a href="/guide/switching-cafe-beans/">카페 원두 바꾸면 손님이 떠날까</a>를 먼저 읽어 보세요.</p>

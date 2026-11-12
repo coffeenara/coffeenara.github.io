@@ -148,9 +148,25 @@ def faq_html(keys, heading="자주 묻는 질문"):
     return f'<section class="faq" aria-labelledby="faq-h"><h2 id="faq-h">{E(heading)}</h2>{items}</section>'
 
 
+TALK_ICON = ('<svg class="talk-ico" viewBox="0 0 24 24" aria-hidden="true" focusable="false">'
+             '<path d="M12 3.5C6.8 3.5 2.6 6.8 2.6 10.9c0 2.6 1.7 4.9 4.3 6.2l-.9 3.4c-.1.3.3.6.6.4l4-2.7'
+             'c.5.1.9.1 1.4.1 5.2 0 9.4-3.3 9.4-7.4S17.2 3.5 12 3.5z"/></svg>')
+
+
+def kakao_btn(extra=""):
+    cls = "btn btn-talk" + (" " + extra if extra else "")
+    return (f'<a class="{cls}" href="{E(S.CONTACT_URL)}" target="_blank" rel="noopener">'
+            f'{TALK_ICON}<span>{E(S.CONTACT_LABEL)}</span></a>')
+
+
+def form_link():
+    return f'<a href="{E(S.FORM_URL)}" target="_blank" rel="noopener">신청서</a>'
+
+
 def cta_html(text="지금 신청하시고 맛의 변화를 느껴 보세요"):
     return (f'<section class="cta"><p class="cta-lead">{E(text)}</p>'
-            f'<a class="btn" href="{E(S.CONTACT_URL)}" target="_blank" rel="noopener">{E(S.CONTACT_LABEL)}</a>'
+            f'{kakao_btn()}'
+            f'<p class="cta-alt">카톡이 부담스러우시면 {form_link()}로 남겨 주세요. 확인 후 전화드립니다.</p>'
             f'<p class="cta-sub">월 {S.MIN_KG}kg 이상 사용 매장 · 제주도와 배로만 갈 수 있는 섬을 뺀 전국 방문</p></section>')
 
 
@@ -203,7 +219,7 @@ def page(p):
 <header class="site-header">
 <div class="wrap header-in">
 <a class="brand" href="/">{S.NAME_EN}<span>{S.NAME}</span></a>
-<a class="btn btn-sm" href="{E(S.CONTACT_URL)}" target="_blank" rel="noopener">{E(S.CONTACT_LABEL)}</a>
+{kakao_btn("btn-sm")}
 </div>
 <nav class="wrap nav" aria-label="사이트 메뉴">{nav}</nav>
 </header>
@@ -214,7 +230,7 @@ def page(p):
 <div class="wrap">
 <p><strong>{S.NAME} {S.NAME_EN}</strong> · 생두 수입 · 로스팅 · 카페 원두 납품</p>
 <p>원두 1kg {S.won(S.PRICE_MIN)}~{S.won(S.PRICE_MAX)} · 주문 후 영업일 1~2일 안에 로스팅해 택배 발송 · 무료 방문 테스트는 제주도와 배로만 갈 수 있는 섬을 뺀 전국</p>
-<p>문의 <a href="mailto:{S.EMAIL}">{S.EMAIL}</a> · <a href="{E(S.CONTACT_URL)}" target="_blank" rel="noopener">{E(S.CONTACT_LABEL)}</a></p>
+<p>문의 <a href="{E(S.CONTACT_URL)}" target="_blank" rel="noopener">{E(S.CONTACT_LABEL)}</a> · <a href="{E(S.FORM_URL)}" target="_blank" rel="noopener">신청서</a> · <a href="mailto:{S.EMAIL}">{S.EMAIL}</a></p>
 </div>
 </footer>
 </body>
