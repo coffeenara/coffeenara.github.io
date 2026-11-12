@@ -159,14 +159,22 @@ def kakao_btn(extra=""):
             f'{TALK_ICON}<span>{E(S.CONTACT_LABEL)}</span></a>')
 
 
-def form_link():
-    return f'<a href="{E(S.FORM_URL)}" target="_blank" rel="noopener">신청서</a>'
+FORM_LABEL = "무료 테스트 신청"
+FORM_NOTE = "무료 테스트 신청은 연락처만 남기시면 확인 후 전화드립니다."
+
+
+def form_btn():
+    return f'<a class="btn btn-form" href="{E(S.FORM_URL)}" target="_blank" rel="noopener">{FORM_LABEL}</a>'
+
+
+def contact_btns():
+    return f'<div class="btn-row">{kakao_btn()}{form_btn()}</div>'
 
 
 def cta_html(text="지금 신청하시고 맛의 변화를 느껴 보세요"):
     return (f'<section class="cta"><p class="cta-lead">{E(text)}</p>'
-            f'{kakao_btn()}'
-            f'<p class="cta-alt">카톡이 부담스러우시면 {form_link()}로 남겨 주세요. 확인 후 전화드립니다.</p>'
+            f'{contact_btns()}'
+            f'<p class="cta-alt">{FORM_NOTE}</p>'
             f'<p class="cta-sub">월 {S.MIN_KG}kg 이상 사용 매장 · 제주도와 배로만 갈 수 있는 섬을 뺀 전국 방문</p></section>')
 
 
@@ -230,7 +238,7 @@ def page(p):
 <div class="wrap">
 <p><strong>{S.NAME} {S.NAME_EN}</strong> · 생두 수입 · 로스팅 · 카페 원두 납품</p>
 <p>원두 1kg {S.won(S.PRICE_MIN)}~{S.won(S.PRICE_MAX)} · 주문 후 영업일 1~2일 안에 로스팅해 택배 발송 · 무료 방문 테스트는 제주도와 배로만 갈 수 있는 섬을 뺀 전국</p>
-<p>문의 <a href="{E(S.CONTACT_URL)}" target="_blank" rel="noopener">{E(S.CONTACT_LABEL)}</a> · <a href="{E(S.FORM_URL)}" target="_blank" rel="noopener">신청서</a> · <a href="mailto:{S.EMAIL}">{S.EMAIL}</a></p>
+<p>문의 <a href="{E(S.CONTACT_URL)}" target="_blank" rel="noopener">{E(S.CONTACT_LABEL)}</a> · <a href="{E(S.FORM_URL)}" target="_blank" rel="noopener">무료 테스트 신청</a> · <a href="mailto:{S.EMAIL}">{S.EMAIL}</a></p>
 </div>
 </footer>
 </body>

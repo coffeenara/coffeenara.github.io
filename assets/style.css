@@ -126,3 +126,6 @@ main ul:not(.chips):not(.guide-list) li { margin: 4px 0; }
 .btn-sm.btn-talk { gap: 6px; }
 .hero-alt, .cta-alt { color: var(--muted); font-size: 14px; margin: 10px 0 0; }
 .hero-alt a, .cta-alt a { color: var(--ink); }
+.btn-row { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; }
+.cta .btn-row { justify-content: center; }
+.btn-form { background: var(--red); color: #fff; }
