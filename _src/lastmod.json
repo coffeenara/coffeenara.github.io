@@ -1,34 +1,34 @@
 {
  "/": {
-  "date": "2026-11-12",
-  "hash": "149a9851bc0ca9fd76096735af67474e22aed9e4ca5cf5c0717efd7389297f47"
+  "date": "2026-11-13",
+  "hash": "3e5586ebeb4bbc5a75f5502600149619a28341d6323b79270cf81fc36298a4e8"
  },
  "/blends/": {
-  "date": "2026-11-12",
-  "hash": "fe3b1ea2397d216f80aa28c3486fc793f1bc838a9b578bb1917e3e57e026f2de"
+  "date": "2026-11-13",
+  "hash": "a6ce58fb0dfb85d5cc0d2a17c8a240af9a8faef67b827b438dfd2001aea4db16"
  },
  "/faq/": {
-  "date": "2026-11-12",
-  "hash": "f4170ea59271c6949e0aa5318f026649cfb10dc389f0dd8f0cc686b4058267d4"
+  "date": "2026-11-13",
+  "hash": "7691b8935c0e5e3d02f8b9bd0af8dd3116f9c5e513282a6015f4c9aea84d79b0"
  },
  "/free-test/": {
-  "date": "2026-11-12",
-  "hash": "66c22394551964b5383f3b844dad8206ccbf54676140d7f884e4b3e5ec36f1fb"
+  "date": "2026-11-13",
+  "hash": "4a1617f46943485dbcff241c2d491d278cfeab17bcd706923137bc0b89c0fd6f"
  },
  "/guide/": {
-  "date": "2026-11-12",
-  "hash": "f19e99270d86cb3710e3831c1c80a9dc2208c440fb24c44e1105179f9f2d62dd"
+  "date": "2026-11-13",
+  "hash": "f54839d0fa936eab2d4ca8180ac21152645d5b7b375ccf9bcd781b3bf14c3522"
  },
  "/guide/choose-bean-supplier/": {
-  "date": "2026-11-12",
-  "hash": "d80810bfbfcee8dff246fdee4855add9a54a84e13b949a6ae516fcf5eee6d964"
+  "date": "2026-11-13",
+  "hash": "f756962cc4a1fd43458a10c9e66f4b82d9a08bd241dc9302f132fd49a7328736"
  },
  "/guide/switching-cafe-beans/": {
-  "date": "2026-11-12",
-  "hash": "295e8788397366ae37b3a0f67abc544fa60462136382c5aa720c4d77038d7391"
+  "date": "2026-11-13",
+  "hash": "c6e5935e2dcddd75a0e24d8ce077d763fcd6f6eaf7e499f551c4b5a907bd558f"
  },
  "/origin/": {
-  "date": "2026-11-12",
-  "hash": "4da3b75ed480535a28b2ed19fa1ab6d6a92af64f5c62cde56974dcef8c8613e6"
+  "date": "2026-11-13",
+  "hash": "8aed48e7086fb2b044f1241be0d2ee2e6599d24a44547c09f95901053c6ff274"
  }
 }
