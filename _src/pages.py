@@ -368,7 +368,7 @@ def build(S, E, X):
 <tr><th scope="row">생두</th><td>직접 수입(케냐, 과테말라, 에티오피아 산지 방문)</td></tr>
 </tbody>
 </table></div>
-<p>업체를 정한 뒤 원두를 실제로 바꿀 때의 걱정(단골 반응, 세팅, 계약)은 <a href="/guide/switching-cafe-beans/">카페 원두 바꾸면 손님이 떠날까</a>에 정리했습니다.</p>
+<p>업체를 정한 뒤 원두를 실제로 바꿀 때의 걱정(단골 반응, 세팅)은 <a href="/guide/switching-cafe-beans/">카페 원두 바꾸면 손님이 떠날까</a>에 정리했습니다.</p>
 """
     gpath = "/guide/choose-bean-supplier/"
     pages.append(dict(
@@ -399,10 +399,9 @@ def build(S, E, X):
 <thead><tr><th scope="col">걱정</th><th scope="col">현장에서 본 것</th><th scope="col">이렇게 하면 됩니다</th></tr></thead>
 <tbody>
 <tr><th scope="row">단골이 싫어할까</th><td>지금보다 좋은 원두로 바꾼 매장의 손님 반응은 대부분 호의적이었습니다</td><td>맛이 좋아지는 쪽으로 바꿉니다</td></tr>
-<tr><th scope="row">원가를 낮추고 싶다</th><td>싼 원두로 바꾼 뒤 손님이 크게 줄었다는 매장이 있습니다</td><td>원두 등급을 낮추지 말고, 단가가 맞는 블렌드를 고릅니다</td></tr>
+<tr><th scope="row">원가를 낮추고 싶다</th><td>싼 원두로 바꾼 뒤 손님이 크게 줄어든 매장을 직접 봤습니다</td><td>원두 등급을 낮추지 말고, 단가가 맞는 블렌드를 고릅니다</td></tr>
 <tr><th scope="row">샘플은 맛있었는데</th><td>같은 원두도 매장마다 맛이 조금씩 다르게 나옵니다</td><td>내 매장의 머신과 그라인더로 맛봅니다</td></tr>
 <tr><th scope="row">세팅을 다시 잡아야 한다</th><td>원두가 바뀌면 분쇄도와 원두 양을 다시 맞춰야 합니다</td><td>한 번에 한 가지씩 조정합니다</td></tr>
-<tr><th scope="row">계약에 묶일까</th><td>원두만 받는 거래에서는 의무 사용기간 계약이 거의 없습니다</td><td>머신 렌탈을 함께 받는다면 계약서를 확인합니다</td></tr>
 <tr><th scope="row">테스트 비용</th><td>무료 테스트라도 선결제 후 환급, 거리 제한 같은 조건이 붙는 곳이 있습니다</td><td>조건을 미리 묻습니다. 커피나라는 100% 무료입니다</td></tr>
 </tbody>
 </table></div>
@@ -417,7 +416,7 @@ def build(S, E, X):
 
 <h2>원가 때문에 싼 원두로 바꾼 매장은 손님을 잃었습니다</h2>
 <p>커피나라가 예전에 원두를 납품하던 곳 중에 손님이 줄을 서던 카페가 있었습니다. 가게를 넘겨받은 새 사장님이 원가를 낮추려고 저가 원두로 바꿨고,
-지금은 문을 닫을 걱정을 할 만큼 손님이 줄었다고 들었습니다.</p>
+지금은 문을 닫을 걱정을 할 만큼 손님이 줄었습니다. 이야기로도 들었고, 직접 보기도 했습니다.</p>
 <p>원두값을 줄이고 싶다면 원두의 질을 낮추기보다, 단가가 맞는 블렌드를 고르는 쪽이 안전합니다. 커피나라 원두는 {S.PRICE_TEXT}이고,
 <a href="/blends/">대표 블렌드</a> 외에도 수십 가지 블렌드가 있어 목표 단가에 맞춰 고를 수 있습니다. 잔당 원두 원가는
 <a href="/guide/choose-bean-supplier/">카페 원두 납품 업체 고르는 법</a>의 표로 계산해 볼 수 있습니다.</p>
@@ -443,23 +442,19 @@ def build(S, E, X):
 <p>무료 테스트를 내건 곳이라도 조건은 확인하세요. 먼저 비용을 내고 일정량을 주문하면 돌려받는 방식이나, 로스터리에서 몇 km 안의 매장만 방문하는 곳도 있습니다.
 커피나라 <a href="/free-test/">방문 샘플 테스트</a>는 100% 무료입니다. 신청비와 보증금이 없고, 환급 조건도 없으며, 제주도와 배로만 갈 수 있는 섬을 뺀 전국에 찾아갑니다.
 한 달 원두 사용량이 {S.MIN_KG}kg 이상이면 신청할 수 있고, 테스트 뒤 거래하지 않아도 손해 볼 것이 없습니다.</p>
-
-<h2>의무 사용기간 계약은 원두보다 머신 렌탈에서 확인합니다</h2>
-<p>원두만 납품받는 거래에서는 의무 사용기간이나 위약금 계약이 거의 없습니다. 그런 계약은 주로 커피 머신을 렌탈해 주는 업체에서 볼 수 있습니다.
-머신 렌탈과 원두를 한 업체에서 함께 받고 있다면, 원두를 바꾸기 전에 계약서의 사용기간과 해지 조건을 먼저 확인하세요.</p>
 """
     spath = "/guide/switching-cafe-beans/"
     pages.append(dict(
         path=spath, crumb="카페 원두 바꿀 때",
         title="카페 원두 바꾸면 손님이 떠날까? 원두 교체 전에 알아 둘 것 · 커피나라",
         description="카페 원두를 바꿀 때의 걱정과 현장 경험: 좋은 원두로 바꾼 매장의 손님 반응은 대부분 호의적, 원가 때문에 싼 원두로 "
-                    "바꾼 매장은 손님을 잃음. 매장마다 다른 맛, 분쇄도·도징 다시 잡기, 의무 사용기간 계약, 무료 테스트 조건 확인.",
+                    "바꾼 매장은 손님을 잃음. 매장마다 다른 맛, 분쇄도·도징 다시 잡기, 무료 테스트 조건 확인.",
         body=switch,
         updated=sdate,
         og_type="article",
         image="espresso-extraction.jpg",
         image_alt="방문 테스트 중 매장의 에스프레소 머신에서 두 잔으로 추출되는 에스프레소",
-        faq=["switch_reaction", "switch_setting", "store_diff", "contract", "free_cost", "education"],
+        faq=["switch_reaction", "switch_setting", "store_diff", "free_cost", "education"],
         schema=[{"@type": "Article", "@id": S.BASE + spath + "#article",
                  "headline": "카페 원두 바꾸면 손님이 떠날까? 원두 교체 전에 알아 둘 것", "inLanguage": "ko",
                  "datePublished": sdate, "dateModified": sdate,
@@ -477,7 +472,7 @@ def build(S, E, X):
         path="/guide/", crumb="가이드",
         title="카페 운영 가이드 | 원두 납품 업체 고르기 · 원두 바꿀 때 · 커피나라",
         description="카페 사장님과 창업 준비자를 위한 커피나라 가이드. 원두 납품 업체 고르는 법, 잔당 원가 계산, 원두를 바꿀 때 "
-                    "손님 반응과 세팅, 계약 확인.",
+                    "손님 반응과 세팅.",
         body=f"""<p class="eyebrow">가이드</p>
 <h1>카페 운영 가이드</h1>
 <p class="lead">카페를 열거나 원두를 바꾸려는 분들이 자주 묻는 것을, 커피나라가 매장을 찾아다니며 본 것과 함께 정리합니다.</p>
