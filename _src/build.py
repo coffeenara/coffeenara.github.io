@@ -23,7 +23,7 @@ NAV = [
     ("/free-test/", "무료 방문 테스트"),
     ("/origin/", "생두 직접 수입"),
     ("/faq/", "자주 묻는 질문"),
-    ("/guide/choose-bean-supplier/", "가이드"),
+    ("/guide/", "가이드"),
 ]
 
 
@@ -42,9 +42,11 @@ def org_schema():
         "logo": S.BASE + "/assets/img/og-cover.jpg",
         "email": S.EMAIL,
         "description": "생두를 직접 수입하는 회사이자, 그 생두를 로스팅해 카페와 매장에 원두를 납품하는 로스터리. "
-                       "제주도와 배로만 갈 수 있는 섬을 뺀 전국 매장에 찾아가 무료 샘플 테스트를 진행한다.",
+                       "제주도와 배로만 갈 수 있는 섬을 뺀 전국 매장에 찾아가 100% 무료로 샘플 테스트와 세팅을 하고, "
+                       "원두를 납품하는 매장에 무료 커피 교육과 컨설팅을 한다.",
         "areaServed": [area(a) for a in S.AREAS],
-        "knowsAbout": ["생두 수입", "커피 생두", "커피 원두", "블렌드 원두", "카페 원두 납품", "생두 수입", "커피 로스팅", "에스프레소 블렌드"],
+        "knowsAbout": ["생두 수입", "커피 생두", "커피 원두", "블렌드 원두", "카페 원두 납품", "커피 로스팅",
+                       "에스프레소 블렌드", "에스프레소 추출 세팅", "커피 교육", "카페 컨설팅"],
         "contactPoint": {"@type": "ContactPoint", "contactType": "sales", "url": S.CONTACT_URL,
                          "email": S.EMAIL, "availableLanguage": "ko", "areaServed": "KR"},
         "hasOfferCatalog": {
@@ -80,14 +82,30 @@ def service_schema():
         "provider": {"@id": ORG_ID},
         "areaServed": [area(a) for a in S.AREAS],
         "audience": {"@type": "BusinessAudience", "audienceType": "카페·커피 매장 운영자와 창업 준비자"},
-        "description": "커피나라가 매장에 직접 찾아가 여러 원두를 추출해 함께 맛보고, 매장에 맞는 블렌드를 제안하는 "
-                       "무료 서비스. 한 달 원두 사용량 10kg 이상 매장 대상, 제주도와 배로만 갈 수 있는 섬 제외.",
+        "description": "15년 이상 커피 교육 경력의 커피나라 담당자가 매장에 직접 찾아가 그 매장의 머신과 그라인더로 여러 원두를 "
+                       "추출해 함께 맛보고, 가장 좋은 맛이 나도록 세팅한 뒤 매장에 맞는 블렌드를 제안하는 서비스. 100% 무료로, "
+                       "신청비·보증금·환급 조건과 거리 제한이 없다. 한 달 원두 사용량 10kg 이상 매장 대상, 제주도와 배로만 갈 수 "
+                       "있는 섬 제외.",
         "offers": {
             "@type": "Offer", "price": 0, "priceCurrency": "KRW",
             "eligibleQuantity": {"@type": "QuantitativeValue", "minValue": S.MIN_KG, "unitCode": "KGM",
                                  "unitText": "한 달 원두 사용량"},
             "url": S.CONTACT_URL,
         },
+    }
+
+
+def education_schema():
+    return {
+        "@type": "Service",
+        "@id": S.BASE + "/free-test/#education",
+        "name": "원두 납품 매장 무료 커피 교육·컨설팅",
+        "serviceType": "에스프레소 추출 교육, 매장 세팅, 카페 운영 컨설팅",
+        "provider": {"@id": ORG_ID},
+        "areaServed": [area(a) for a in S.AREAS],
+        "audience": {"@type": "BusinessAudience", "audienceType": "커피나라 원두를 쓰는 카페·커피 매장"},
+        "description": "15년 이상 커피 교육 경력의 커피나라 담당자가 원두를 납품하는 매장에 추출 교육과 컨설팅을 무료로 진행한다.",
+        "offers": {"@type": "Offer", "price": 0, "priceCurrency": "KRW"},
     }
 
 
@@ -227,7 +245,8 @@ def main():
 
 > 생두를 직접 수입하는 회사이자, 그 생두를 로스팅해 카페와 매장에 원두를 납품하는 로스터리입니다. 제주도와 배로만 갈 수 있는 섬을 뺀 전국 매장에 찾아가 무료 샘플 테스트를 합니다.
 
-- 무료 방문 샘플 테스트: 한 달 원두 사용량 {S.MIN_KG}kg 이상 매장, 제주도와 배로만 갈 수 있는 섬을 뺀 전국
+- 무료 방문 샘플 테스트: 100% 무료(신청비·보증금·환급 조건 없음, 거리 제한 없음), 한 달 원두 사용량 {S.MIN_KG}kg 이상 매장, 제주도와 배로만 갈 수 있는 섬을 뺀 전국. 매장의 머신과 그라인더로 테스트하고 세팅
+- 교육·컨설팅: 15년 이상 커피 교육을 해 온 담당자가 원두 납품 매장에 무료로 진행
 - 원두 가격: {S.PRICE_TEXT}
 - 발송: 주문 후 영업일 1~2일 안에 로스팅해 택배 발송
 - 대표 블렌드: Premium Blend({", ".join(S.PREMIUM["notes"])}), Special Blend({", ".join(S.SPECIAL["notes"])}), 그 밖에 수십 가지 블렌드

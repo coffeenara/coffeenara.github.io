@@ -26,7 +26,7 @@ def blend_card(S, E, b, link=True):
 
 def facts_strip(S, E):
     return f"""<dl class="facts">
-<div><dt>방문 샘플 테스트</dt><dd>무료</dd></div>
+<div><dt>방문 샘플 테스트·세팅</dt><dd>100% 무료</dd></div>
 <div><dt>신청 조건</dt><dd>월 {S.MIN_KG}kg 이상 사용</dd></div>
 <div><dt>원두 가격</dt><dd>1kg {S.won(S.PRICE_MIN)}~{S.won(S.PRICE_MAX)}</dd></div>
 <div><dt>발송</dt><dd>주문 후 영업일 1~2일 안에 로스팅해 택배</dd></div>
@@ -35,8 +35,8 @@ def facts_strip(S, E):
 
 STEPS = [
     ("상담 신청", "카카오톡으로 매장 지역과 한 달 원두 사용량을 알려 주시면 방문 일정을 잡습니다."),
-    ("방문 테스트", "매장에 찾아가 여러 원두를 직접 추출해 함께 맛봅니다."),
-    ("맞춤 제안", "매장의 메뉴와 원하는 맛, 목표 단가에 맞는 블렌드를 추천합니다."),
+    ("방문 테스트", "매장의 머신과 그라인더로 여러 원두를 추출해 함께 맛보고, 가장 좋은 맛이 나도록 세팅합니다."),
+    ("맞춤 제안", "매장의 메뉴와 원하는 맛, 목표 단가에 맞는 블렌드를 추천하고, 교육과 컨설팅도 무료로 해 드립니다."),
 ]
 
 
@@ -102,8 +102,8 @@ def build(S, E, X):
 <div class="hero-text">
 <p class="eyebrow">Coffee Nara · 커피나라</p>
 <h1>매장에서 직접 맛보고 고르는<br>카페 원두</h1>
-<p class="lead">커피나라는 생두를 직접 수입하고, 그 생두를 로스팅해 카페에 원두를 납품합니다. 매장에 찾아가 샘플 테스트를 무료로 해 드립니다.
-월 {S.MIN_KG}kg 이상만 사용하셔도 방문합니다. 원두의 맛과 단가, 두 가지 모두 만족을 약속드립니다.</p>
+<p class="lead">커피나라는 생두를 직접 수입하고, 그 생두를 로스팅해 카페에 원두를 납품합니다. 매장에 찾아가 샘플 테스트를 100% 무료로 해 드립니다.
+신청비도, 환급 조건도 없습니다. 월 {S.MIN_KG}kg 이상만 사용하셔도 방문합니다. 원두의 맛과 단가, 두 가지 모두 만족을 약속드립니다.</p>
 <a class="btn" href="{E(S.CONTACT_URL)}" target="_blank" rel="noopener">{E(S.CONTACT_LABEL)}</a>
 </div>
 <img class="hero-img" src="/assets/img/roaster.webp" alt="로스터 냉각판에서 막 볶은 원두가 돌며 식는 모습(움직이는 이미지)" width="480" height="254" fetchpriority="high">
@@ -152,7 +152,7 @@ def build(S, E, X):
         description=f"커피나라는 생두를 직접 수입해 로스팅하고 카페에 원두를 납품하는 회사입니다. 월 {S.MIN_KG}kg 이상 "
                     f"매장에 찾아가 무료로 샘플 테스트를 합니다. 원두 {S.PRICE_TEXT}.",
         body=home,
-        faq=["about", "visit", "min", "price", "ship", "new_store", "unsatisfied"],
+        faq=["about", "visit", "free_cost", "min", "price", "ship", "new_store", "unsatisfied"],
         schema=[{"@type": "WebPage", "@id": S.BASE + "/#webpage", "url": S.BASE + "/",
                  "name": "커피나라 | 카페 원두 납품 · 무료 방문 샘플 테스트", "inLanguage": "ko",
                  "about": {"@id": S.BASE + "/#org"}, "isPartOf": {"@id": S.BASE + "/#website"},
@@ -210,18 +210,21 @@ def build(S, E, X):
     free = f"""<p class="eyebrow">무료 방문 샘플 테스트</p>
 <h1>무료 방문 커피 샘플 테스트</h1>
 <p class="lead">새 원두를 고를 때 가장 확실한 방법은 내 매장의 머신과 그라인더로 직접 내려 보는 것입니다.
-커피나라가 매장에 찾아가 여러 원두를 추출해 드리고, 함께 맛본 뒤 매장에 맞는 블렌드를 제안합니다.</p>
+커피나라가 매장에 찾아가 여러 원두를 추출해 드리고, 함께 맛본 뒤 그 매장에서 가장 좋은 맛이 나도록 세팅하고 블렌드를 제안합니다.
+테스트는 100% 무료입니다. 먼저 비용을 내고 나중에 돌려받는 방식이 아니고, 로스터리에서 몇 km 안이라는 거리 제한도 없습니다.</p>
 
 <div class="table-wrap"><table>
 <caption>무료 방문 샘플 테스트 조건</caption>
 <tbody>
-<tr><th scope="row">비용</th><td>무료</td></tr>
+<tr><th scope="row">비용</th><td>100% 무료. 신청비·보증금 없음, 주문량에 따른 환급 조건 없음</td></tr>
+<tr><th scope="row">세팅·교육</th><td>매장의 머신과 그라인더에 맞춘 세팅, 15년 이상 커피 교육을 해 온 담당자의 무료 교육·컨설팅</td></tr>
 <tr><th scope="row">대상</th><td>한 달 원두 사용량 {S.MIN_KG}kg 이상인 카페·매장, 오픈을 준비하는 매장</td></tr>
 <tr><th scope="row">지역</th><td>제주도와 배로만 갈 수 있는 섬을 뺀 전국</td></tr>
 <tr><th scope="row">진행</th><td>상담 신청 → 매장 방문 테스트 → 맞춤 블렌드 제안</td></tr>
 <tr><th scope="row">신청</th><td><a href="{E(S.CONTACT_URL)}" target="_blank" rel="noopener">{E(S.CONTACT_LABEL)}</a></td></tr>
 </tbody>
 </table></div>
+<p>원두를 바꾸고 싶은데 단골 반응이 걱정된다면 <a href="/guide/switching-cafe-beans/">카페 원두 바꾸면 손님이 떠날까</a>를 먼저 읽어 보세요.</p>
 
 <section>
 <h2>진행 순서</h2>
@@ -260,8 +263,9 @@ def build(S, E, X):
         description=f"커피나라가 카페에 직접 찾아가 원두를 추출해 함께 맛보고 블렌드를 제안합니다. 무료, 월 {S.MIN_KG}kg 이상 "
                     "사용 매장, 서울·부산·대구·광주·대전 등 제주도와 배로만 갈 수 있는 섬을 뺀 전국, 오픈 준비 매장도 신청 가능.",
         body=free,
-        faq=["visit", "region", "region_small", "bridge", "new_store", "min", "unsatisfied", "contact"],
-        schema=[X.service_schema()],
+        faq=["visit", "free_cost", "education", "store_diff", "region", "region_small", "bridge", "new_store", "min",
+             "unsatisfied", "contact"],
+        schema=[X.service_schema(), X.education_schema()],
         image="espresso-extraction.jpg",
         image_alt="방문 테스트 중 매장의 에스프레소 머신에서 두 잔으로 추출되는 에스프레소",
     ))
@@ -357,12 +361,14 @@ def build(S, E, X):
 <tbody>
 <tr><th scope="row">신청 조건</th><td>한 달 원두 사용량 {S.MIN_KG}kg 이상</td></tr>
 <tr><th scope="row">1kg 단가</th><td>{S.won(S.PRICE_MIN)}~{S.won(S.PRICE_MAX)}</td></tr>
-<tr><th scope="row">매장 테스트</th><td>무료 방문 샘플 테스트, 제주도와 배로만 갈 수 있는 섬을 뺀 전국</td></tr>
+<tr><th scope="row">매장 테스트</th><td>100% 무료 방문 샘플 테스트와 세팅(신청비·환급 조건 없음), 제주도와 배로만 갈 수 있는 섬을 뺀 전국</td></tr>
+<tr><th scope="row">교육·컨설팅</th><td>원두 납품 매장에 무료(15년 이상 커피 교육 경력 담당자)</td></tr>
 <tr><th scope="row">로스팅·발송</th><td>주문 후 영업일 1~2일 안에 로스팅해 택배</td></tr>
 <tr><th scope="row">블렌드</th><td>대표 블렌드 2가지와 수십 가지 맞춤 블렌드</td></tr>
 <tr><th scope="row">생두</th><td>직접 수입(케냐, 과테말라, 에티오피아 산지 방문)</td></tr>
 </tbody>
 </table></div>
+<p>업체를 정한 뒤 원두를 실제로 바꿀 때의 걱정(단골 반응, 세팅, 계약)은 <a href="/guide/switching-cafe-beans/">카페 원두 바꾸면 손님이 떠날까</a>에 정리했습니다.</p>
 """
     gpath = "/guide/choose-bean-supplier/"
     pages.append(dict(
@@ -378,6 +384,109 @@ def build(S, E, X):
                  "author": {"@id": S.BASE + "/#org"}, "publisher": {"@id": S.BASE + "/#org"},
                  "mainEntityOfPage": S.BASE + gpath, "image": S.BASE + "/assets/img/og-cover.jpg",
                  "about": ["카페 원두 납품", "카페 창업", "원두 단가", "잔당 원가"]}],
+    ))
+
+    # ── 가이드: 원두 바꿀 때 ─────────────────────────────
+    sdate = "2026-11-12"
+    switch = f"""<p class="eyebrow">가이드 · 카페 운영</p>
+<h1>카페 원두 바꾸면 손님이 떠날까? 원두 교체 전에 알아 둘 것</h1>
+<p class="meta">커피나라 · {sdate}</p>
+<p class="lead">지금 쓰는 원두가 마음에 들지 않는데도 쉽게 바꾸지 못하는 이유는 대개 하나입니다. 단골이 맛이 달라졌다며 떠날까 봐서입니다.
+커피나라가 매장을 찾아다니며 원두를 바꿔 드린 경험으로 보면, 손님을 떠나게 하는 것은 원두를 바꾸는 일 자체가 아니라 어떤 원두로, 어떻게 바꾸느냐입니다.</p>
+
+<div class="table-wrap"><table>
+<caption>원두를 바꾸기 전에 많이 하는 걱정과 커피나라가 현장에서 본 것</caption>
+<thead><tr><th scope="col">걱정</th><th scope="col">현장에서 본 것</th><th scope="col">이렇게 하면 됩니다</th></tr></thead>
+<tbody>
+<tr><th scope="row">단골이 싫어할까</th><td>지금보다 좋은 원두로 바꾼 매장의 손님 반응은 대부분 호의적이었습니다</td><td>맛이 좋아지는 쪽으로 바꿉니다</td></tr>
+<tr><th scope="row">원가를 낮추고 싶다</th><td>싼 원두로 바꾼 뒤 손님이 크게 줄었다는 매장이 있습니다</td><td>원두 등급을 낮추지 말고, 단가가 맞는 블렌드를 고릅니다</td></tr>
+<tr><th scope="row">샘플은 맛있었는데</th><td>같은 원두도 매장마다 맛이 조금씩 다르게 나옵니다</td><td>내 매장의 머신과 그라인더로 맛봅니다</td></tr>
+<tr><th scope="row">세팅을 다시 잡아야 한다</th><td>원두가 바뀌면 분쇄도와 원두 양을 다시 맞춰야 합니다</td><td>한 번에 한 가지씩 조정합니다</td></tr>
+<tr><th scope="row">계약에 묶일까</th><td>원두만 받는 거래에서는 의무 사용기간 계약이 거의 없습니다</td><td>머신 렌탈을 함께 받는다면 계약서를 확인합니다</td></tr>
+<tr><th scope="row">테스트 비용</th><td>무료 테스트라도 선결제 후 환급, 거리 제한 같은 조건이 붙는 곳이 있습니다</td><td>조건을 미리 묻습니다. 커피나라는 100% 무료입니다</td></tr>
+</tbody>
+</table></div>
+
+<p class="pull">손님이 떠나는 건 원두를 바꿔서가 아니라, 더 나쁜 원두로 바꿔서입니다.</p>
+
+<h2>더 좋은 원두로 바꿨을 때 손님 반응은 대부분 호의적이었습니다</h2>
+<p>사장님들이 원두 교체를 앞두고 가장 많이 걱정하는 것이 손님 반응입니다. 커피나라가 지금보다 좋은 원두로 바꿔 드린 매장에서 손님 반응은 거의 대부분 호의적이었습니다.
+맛이 달라진 것을 알아채는 손님은 좋아진 맛도 알아봅니다.</p>
+<p>커피나라는 원두만 바꿔 드리고 끝내지 않습니다. 15년 이상 커피 교육을 해 온 담당자가 원두를 쓰는 매장에 추출 교육과 컨설팅을 무료로 해 드려,
+바꾼 원두의 맛이 매장에서 꾸준히 나오도록 돕습니다.</p>
+
+<h2>원가 때문에 싼 원두로 바꾼 매장은 손님을 잃었습니다</h2>
+<p>커피나라가 예전에 원두를 납품하던 곳 중에 손님이 줄을 서던 카페가 있었습니다. 가게를 넘겨받은 새 사장님이 원가를 낮추려고 저가 원두로 바꿨고,
+지금은 문을 닫을 걱정을 할 만큼 손님이 줄었다고 들었습니다.</p>
+<p>원두값을 줄이고 싶다면 원두의 질을 낮추기보다, 단가가 맞는 블렌드를 고르는 쪽이 안전합니다. 커피나라 원두는 {S.PRICE_TEXT}이고,
+<a href="/blends/">대표 블렌드</a> 외에도 수십 가지 블렌드가 있어 목표 단가에 맞춰 고를 수 있습니다. 잔당 원두 원가는
+<a href="/guide/choose-bean-supplier/">카페 원두 납품 업체 고르는 법</a>의 표로 계산해 볼 수 있습니다.</p>
+
+<h2>같은 원두도 매장마다 맛이 다르게 나옵니다</h2>
+<p>로스터리에서 마셨을 때 좋았던 원두가 내 매장에서는 다르게 느껴지는 경우가 있습니다. 같은 원두라도 매장의 물, 머신, 그라인더, 추출 방식에 따라 맛이 조금씩 달라지기 때문입니다.
+커피나라가 샘플을 보내지 않고 매장에 직접 찾아가는 이유가 이것입니다. 그 매장에서 낼 수 있는 가장 좋은 맛을 찾아 세팅합니다.</p>
+{fig(E, "espresso-extraction.jpg", "방문 테스트 중 매장의 에스프레소 머신에서 두 잔으로 추출되는 에스프레소", "실제 매장 방문 테스트. 그 매장의 머신으로 추출합니다.")}
+
+<h2>원두를 바꾸면 세팅을 다시 잡아야 합니다</h2>
+<p>원두마다 밀도와 로스팅 정도가 달라서, 이전 원두에 맞춰 둔 분쇄도 그대로는 추출 속도와 맛이 달라집니다. 원두를 바꾸면 이렇게 다시 맞춥니다.</p>
+<ul>
+<li>신맛이 강하고 추출이 빨리 끝나면 분쇄도를 더 곱게 합니다.</li>
+<li>쓴맛이 강하고 추출이 느리면 분쇄도를 더 굵게 합니다.</li>
+<li>분쇄도, 원두 양(도징), 추출량 가운데 한 번에 한 가지만 바꿔 가며 맛을 봅니다.</li>
+<li>그라인더 안에 남아 있던 이전 원두가 처음 몇 잔에 섞여 나오므로, 처음 몇 샷으로는 맛을 판단하지 않습니다.</li>
+</ul>
+<p>커피나라는 방문 테스트 때 이 세팅을 매장에서 직접 잡아 드립니다. 바쁜 시간에도 매장 직원이 쉽고 제대로 같은 맛을 낼 수 있게 만드는 것이 목표입니다.</p>
+{fig(E, "store-test-espresso.jpg", "방문 테스트 중 매장 머신의 포터필터에서 샷 잔으로 떨어지는 에스프레소", "다른 매장의 방문 테스트. 매장마다 세팅이 다릅니다.")}
+
+<h2>대용량 주문 전에 매장에서 먼저 맛봅니다</h2>
+<p>커핑 노트와 상세페이지만 보고 대용량을 먼저 주문하면, 매장에서 기대한 맛이 나지 않았을 때 되돌리기 어렵습니다. 내 매장 장비로 먼저 맛보고 정하는 것이 순서입니다.</p>
+<p>무료 테스트를 내건 곳이라도 조건은 확인하세요. 먼저 비용을 내고 일정량을 주문하면 돌려받는 방식이나, 로스터리에서 몇 km 안의 매장만 방문하는 곳도 있습니다.
+커피나라 <a href="/free-test/">방문 샘플 테스트</a>는 100% 무료입니다. 신청비와 보증금이 없고, 환급 조건도 없으며, 제주도와 배로만 갈 수 있는 섬을 뺀 전국에 찾아갑니다.
+한 달 원두 사용량이 {S.MIN_KG}kg 이상이면 신청할 수 있고, 테스트 뒤 거래하지 않아도 손해 볼 것이 없습니다.</p>
+
+<h2>의무 사용기간 계약은 원두보다 머신 렌탈에서 확인합니다</h2>
+<p>원두만 납품받는 거래에서는 의무 사용기간이나 위약금 계약이 거의 없습니다. 그런 계약은 주로 커피 머신을 렌탈해 주는 업체에서 볼 수 있습니다.
+머신 렌탈과 원두를 한 업체에서 함께 받고 있다면, 원두를 바꾸기 전에 계약서의 사용기간과 해지 조건을 먼저 확인하세요.</p>
+"""
+    spath = "/guide/switching-cafe-beans/"
+    pages.append(dict(
+        path=spath, crumb="카페 원두 바꿀 때",
+        title="카페 원두 바꾸면 손님이 떠날까? 원두 교체 전에 알아 둘 것 · 커피나라",
+        description="카페 원두를 바꿀 때의 걱정과 현장 경험: 좋은 원두로 바꾼 매장의 손님 반응은 대부분 호의적, 원가 때문에 싼 원두로 "
+                    "바꾼 매장은 손님을 잃음. 매장마다 다른 맛, 분쇄도·도징 다시 잡기, 의무 사용기간 계약, 무료 테스트 조건 확인.",
+        body=switch,
+        updated=sdate,
+        og_type="article",
+        image="espresso-extraction.jpg",
+        image_alt="방문 테스트 중 매장의 에스프레소 머신에서 두 잔으로 추출되는 에스프레소",
+        faq=["switch_reaction", "switch_setting", "store_diff", "contract", "free_cost", "education"],
+        schema=[{"@type": "Article", "@id": S.BASE + spath + "#article",
+                 "headline": "카페 원두 바꾸면 손님이 떠날까? 원두 교체 전에 알아 둘 것", "inLanguage": "ko",
+                 "datePublished": sdate, "dateModified": sdate,
+                 "author": {"@id": S.BASE + "/#org"}, "publisher": {"@id": S.BASE + "/#org"},
+                 "mainEntityOfPage": S.BASE + spath, "image": S.BASE + "/assets/img/espresso-extraction.jpg",
+                 "about": ["카페 원두 교체", "원두 납품 업체 변경", "에스프레소 세팅", "분쇄도", "카페 운영"]}],
+    ))
+
+    # ── 가이드 목록 ──────────────────────────────────────
+    guides = [p for p in pages if p["path"].startswith("/guide/")]
+    items = "".join(
+        f'<li><a href="{g["path"]}"><strong>{E(g["title"].split(" | ")[0].split(" · 커피나라")[0])}</strong></a>'
+        f'<span>{E(g["description"])}</span></li>' for g in reversed(guides))
+    pages.append(dict(
+        path="/guide/", crumb="가이드",
+        title="카페 운영 가이드 | 원두 납품 업체 고르기 · 원두 바꿀 때 · 커피나라",
+        description="카페 사장님과 창업 준비자를 위한 커피나라 가이드. 원두 납품 업체 고르는 법, 잔당 원가 계산, 원두를 바꿀 때 "
+                    "손님 반응과 세팅, 계약 확인.",
+        body=f"""<p class="eyebrow">가이드</p>
+<h1>카페 운영 가이드</h1>
+<p class="lead">카페를 열거나 원두를 바꾸려는 분들이 자주 묻는 것을, 커피나라가 매장을 찾아다니며 본 것과 함께 정리합니다.</p>
+<ul class="guide-list">{items}</ul>""",
+        schema=[{"@type": "CollectionPage", "@id": S.BASE + "/guide/#webpage", "url": S.BASE + "/guide/",
+                 "name": "커피나라 카페 운영 가이드", "inLanguage": "ko", "isPartOf": {"@id": S.BASE + "/#website"},
+                 "mainEntity": {"@type": "ItemList", "itemListElement": [
+                     {"@type": "ListItem", "position": i + 1, "url": S.BASE + g["path"]}
+                     for i, g in enumerate(reversed(guides))]}}],
     ))
 
     return pages

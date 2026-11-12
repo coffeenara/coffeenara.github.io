@@ -112,3 +112,10 @@ tbody th small { color: var(--muted); font-weight: 400; }
   section { margin: 40px 0; }
 }
 figure.narrow { max-width: 420px; }
+main ul:not(.chips):not(.guide-list) { padding-left: 1.2em; }
+main ul:not(.chips):not(.guide-list) li { margin: 4px 0; }
+.guide-list { list-style: none; padding: 0; margin: 24px 0; display: grid; gap: 12px; }
+.guide-list li { background: var(--bg-2); border: 1px solid var(--line); border-radius: var(--radius); padding: 16px 18px; }
+.guide-list a { color: var(--paper); text-decoration: none; font-size: 18px; }
+.guide-list a:hover { color: var(--gold); }
+.guide-list span { display: block; color: var(--muted); font-size: 14px; margin-top: 4px; }
