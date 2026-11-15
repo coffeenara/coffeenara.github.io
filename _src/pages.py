@@ -150,13 +150,13 @@ def build(S, E, X):
 """
     pages.append(dict(
         path="/",
-        title="커피나라 Coffee Nara | 생두 수입 · 카페 원두 납품 · 무료 방문 샘플 테스트",
-        description=f"커피나라는 생두를 직접 수입해 로스팅하고 카페에 원두를 납품하는 회사입니다. 월 {S.MIN_KG}kg 이상 "
-                    f"매장에 찾아가 무료로 샘플 테스트를 합니다. 원두 {S.PRICE_TEXT}.",
+        title="커피나라 Coffee Nara | 카페 원두 납품 · 무료 원두 샘플 테스트 · 생두 직접 수입",
+        description=f"커피나라는 생두를 직접 수입해 로스팅하고 카페에 원두를 납품하는 회사입니다. 원두 샘플을 택배로 보내는 대신 "
+                    f"월 {S.MIN_KG}kg 이상 쓰는 카페에 찾아가 무료 원두 샘플 테스트를 합니다. 원두 {S.PRICE_TEXT}.",
         body=home,
-        faq=["about", "visit", "free_cost", "min", "price", "ship", "new_store", "unsatisfied"],
+        faq=["about", "visit", "free_sample", "free_cost", "min", "price", "ship", "new_store", "unsatisfied"],
         schema=[{"@type": "WebPage", "@id": S.BASE + "/#webpage", "url": S.BASE + "/",
-                 "name": "커피나라 | 카페 원두 납품 · 무료 방문 샘플 테스트", "inLanguage": "ko",
+                 "name": "커피나라 | 카페 원두 납품 · 무료 원두 샘플 테스트", "inLanguage": "ko",
                  "about": {"@id": S.BASE + "/#org"}, "isPartOf": {"@id": S.BASE + "/#website"},
                  "dateModified": X.LASTMOD}],
     ))
@@ -209,10 +209,10 @@ def build(S, E, X):
     region_rows = "".join(
         f"<tr><th scope=\"row\">{E(g)}</th><td>{E(', '.join(lst))}</td><td>방문 가능</td></tr>"
         for g, lst in S.REGIONS)
-    free = f"""<p class="eyebrow">무료 방문 샘플 테스트</p>
-<h1>무료 방문 커피 샘플 테스트</h1>
+    free = f"""<p class="eyebrow">무료 원두 샘플 테스트</p>
+<h1>무료 원두 샘플 테스트: 매장으로 찾아가는 무료 시음</h1>
 <p class="lead">새 원두를 고를 때 가장 확실한 방법은 내 매장의 머신과 그라인더로 직접 내려 보는 것입니다.
-커피나라가 매장에 찾아가 여러 원두를 추출해 드리고, 함께 맛본 뒤 그 매장에서 가장 좋은 맛이 나도록 세팅하고 블렌드를 제안합니다.
+그래서 커피나라는 원두 샘플을 택배로 보내는 대신 매장에 찾아갑니다. 커피나라가 매장에 찾아가 여러 원두를 추출해 드리고, 함께 맛본 뒤 그 매장에서 가장 좋은 맛이 나도록 세팅하고 블렌드를 제안합니다.
 테스트는 100% 무료입니다. 먼저 비용을 내고 나중에 돌려받는 방식이 아니고, 로스터리에서 몇 km 안이라는 거리 제한도 없습니다.</p>
 
 <div class="table-wrap"><table>
@@ -260,12 +260,13 @@ def build(S, E, X):
 </section>
 """
     pages.append(dict(
-        path="/free-test/", crumb="무료 방문 테스트",
-        title="무료 방문 커피 샘플 테스트 | 전국 카페 방문(제주·배편 섬 제외) · 커피나라",
-        description=f"커피나라가 카페에 직접 찾아가 원두를 추출해 함께 맛보고 블렌드를 제안합니다. 무료, 월 {S.MIN_KG}kg 이상 "
-                    "사용 매장, 서울·부산·대구·광주·대전 등 제주도와 배로만 갈 수 있는 섬을 뺀 전국, 오픈 준비 매장도 신청 가능.",
+        path="/free-test/", crumb="무료 원두 샘플 테스트",
+        title="무료 원두 샘플 테스트 | 카페로 찾아가는 무료 시음 · 전국 방문 · 커피나라",
+        description=f"카페 원두 무료 샘플을 택배로 보내는 대신, 커피나라가 카페에 직접 찾아가 원두를 추출해 함께 맛보고 블렌드를 "
+                    f"제안합니다. 100% 무료, 월 {S.MIN_KG}kg 이상 사용 매장, 서울·부산·대구·광주·대전 등 제주도와 배로만 갈 수 "
+                    "있는 섬을 뺀 전국, 오픈 준비 매장도 신청 가능.",
         body=free,
-        faq=["visit", "free_cost", "education", "store_diff", "region", "region_small", "bridge", "new_store", "min",
+        faq=["free_sample", "visit", "free_cost", "education", "store_diff", "region", "region_small", "bridge", "new_store", "min",
              "unsatisfied", "contact"],
         schema=[X.service_schema(), X.education_schema()],
         image="espresso-extraction.jpg",
